@@ -13,7 +13,7 @@ class SignIn extends Component {
 	}
 
 	authorizeUser = () => {
-		console.log(this.state.authedUser)
+		this.props.dispatch(setAuthedUser(this.state.authedUser))
 	}
 
 	componentDidUpdate() {

@@ -5,6 +5,11 @@ html, body {
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,500');
 
 /** NAV STYLING */
+.complete-nav {
+	display: flex;
+    justify-content: space-evenly;
+}
+
 .nav ul {
   display: flex;
   flex-direction: row;
