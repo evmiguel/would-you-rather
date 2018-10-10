@@ -8,13 +8,17 @@ html, body, .App {
 */
 .sign-in-page {
 	height: 50%;
-    width: 40%;
+    width: 65%;
     display: flex;
     flex-flow: column nowrap;
     margin: 0 auto;
     text-align: center;
     border: gray;
     border-style: solid;
+}
+
+.sign-in-welcome {
+	font-size: 1em;
 }
 
 .sign-in-text {
@@ -25,4 +29,22 @@ html, body, .App {
 .sign-in-select {
 	margin: 0 auto;
 	width: 90%;
+}
+
+@media screen and (max-width: 460px) {
+	.sign-in-page {
+	    width: 90%;
+	}
+}
+
+@media screen and (min-width: 700px) and (max-width: 899px) {
+	.sign-in-page {
+	    width: 50%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.sign-in-page {
+	    width: 30%;
+	}
 }

@@ -7,7 +7,7 @@ class SignIn extends Component {
 		return (
 			<div className='sign-in-page'>
 				<div className='sign-in-text'>
-					<h1>Welcome to the Would You Rather App!</h1>
+					<h1 className='sign-in-welcome'>Welcome to the Would You Rather App!</h1>
 					<p>Please sign in to continue</p>
 				</div>
 				<select className='sign-in-select'>
