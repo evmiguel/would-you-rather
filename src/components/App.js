@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import SignIn from './SignIn'
+import Nav from './Nav'
+import './css/App.css'
 
 class App extends Component {
   componentDidMount() {
@@ -10,9 +13,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <SignIn />
-      </div>
+      <Router>
+        <div className="App">
+          <Nav />
+          <SignIn />
+        </div>
+      </Router>
     );
   }
 }

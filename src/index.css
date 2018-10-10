@@ -1,77 +1,20 @@
-html, body, .App {
+html, body {
 	height: 100%;
 }
 
-
-/**
- SIGN-IN PAGE STYLING
-*/
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,500');
 
-.sign-in-page {
-	height: 50%;
-    width: 65%;
-    display: flex;
-    flex-flow: column nowrap;
-    margin: 0 auto;
-    text-align: center;
-    border: #9a9797;
-    border-style: solid;
-    border-width: thin;
-    border-radius: 10px;
+/** NAV STYLING */
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
 }
 
-.sign-in-prompt-text, .sign-in-welcome {
-	font-size: 1em;
-	margin-bottom: 0;
-}
-
-.sign-in-prompt-text {
-	color: #59e0bd;
-	font-family: 'Roboto', sans-serif;
-}
-
-.sign-in-p {
-	margin: 0 0 .5em;
-	font-family: 'Roboto', sans-serif;
-	font-weight: lighter;
-}
-
-.sign-in-text {
-	border-bottom: #9a9797;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    background: #d3d4d4;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.sign-in-select {
-	margin: .5em auto;
-	width: 90%;
-	border: 1px solid #ccc;
-    font-size: .9em;
-    height: 2em;
-	font-family: 'Roboto', sans-serif;
-	font-weight: lighter;
-}
-
-@media screen and (max-width: 460px) {
-	.sign-in-page {
-	    width: 90%;
-	}
-}
-
-@media screen and (min-width: 700px) and (max-width: 899px) {
-	.sign-in-page {
-	    width: 50%;
-	}
-}
-
-@media screen and (min-width: 915px) {
-	.sign-in-page {
-	    width: 30%;
-	}
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }

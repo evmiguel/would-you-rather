@@ -1,0 +1,89 @@
+
+/**
+ SIGN-IN PAGE STYLING
+*/
+
+.sign-in-page {
+	height: 50%;
+    width: 65%;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    text-align: center;
+    border: #9a9797;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+}
+
+.sign-in-prompt-text, .sign-in-welcome {
+	font-size: 1em;
+	margin-bottom: 0;
+}
+
+.sign-in-prompt-text {
+	color: #59e0bd;
+	font-family: 'Roboto', sans-serif;
+}
+
+.sign-in-p {
+	margin: 0 0 .5em;
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+}
+
+.sign-in-text {
+	border-bottom: #9a9797;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    background: #d3d4d4;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sign-in-select {
+	margin: .5em auto;
+	width: 90%;
+	border: 1px solid #ccc;
+    font-size: .9em;
+    height: 2em;
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+}
+
+.sign-in-btn {
+	width: 90%;
+    margin: .5em auto;
+    font-weight: bolder;
+    background-color: #59e0bd;
+    color: #fff;
+    height: 2.5em;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (max-width: 460px) {
+	.sign-in-page {
+	    width: 90%;
+	}
+}
+
+@media screen and (min-width: 700px) and (max-width: 899px) {
+	.sign-in-page {
+	    width: 50%;
+	}
+}
+
+@media screen and (min-width: 890px) and (max-width: 940px){
+	.sign-in-page {
+	    width: 40%;
+	}
+}
+
+
+@media screen and (min-width: 931px){
+	.sign-in-page {
+	    width: 35%;
+	}
+}

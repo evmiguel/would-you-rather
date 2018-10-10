@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import './css/SignIn.css'
 
 class SignIn extends Component {
 	render() {
@@ -18,6 +19,7 @@ class SignIn extends Component {
 						)))
 					}
 				</select>
+				<button className='sign-in-btn'>Sign In</button>
 			</div>
 		)
 	}
