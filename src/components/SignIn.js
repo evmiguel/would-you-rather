@@ -5,7 +5,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class SignIn extends Component {
 	state = {
-		authedUser: 'Select...'
+		authedUser: ''
 	}
 
 	changeUser = (event) => {
@@ -14,6 +14,12 @@ class SignIn extends Component {
 
 	authorizeUser = () => {
 		console.log(this.state.authedUser)
+	}
+
+	componentDidUpdate() {
+		if (!this.state.authedUser) {
+			this.setState({authedUser: this.props.users[0].id})
+		}
 	}
 
 	render() {
