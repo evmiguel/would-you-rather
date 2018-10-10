@@ -5,10 +5,12 @@ class SignIn extends Component {
 	render() {
 		const { users } = this.props
 		return (
-			<div className="sign-in-page">
-				<h1>Welcome to the Would You Rather App!</h1>
-				<p>Please sign in to continue</p>
-				<select className="sign-in-select">
+			<div className='sign-in-page'>
+				<div className='sign-in-text'>
+					<h1>Welcome to the Would You Rather App!</h1>
+					<p>Please sign in to continue</p>
+				</div>
+				<select className='sign-in-select'>
 					{
 						users.map(user => ((
 							<option key={user.id} value={user.id}>{user.name}</option>

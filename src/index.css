@@ -2,13 +2,27 @@ html, body, .App {
 	height: 100%;
 }
 
+
+/**
+ SIGN-IN PAGE STYLING
+*/
 .sign-in-page {
 	height: 50%;
+    width: 40%;
     display: flex;
     flex-flow: column nowrap;
-	text-align: center;
+    margin: 0 auto;
+    text-align: center;
+    border: gray;
+    border-style: solid;
+}
+
+.sign-in-text {
+	border-bottom: gray;
+    border-bottom-style: solid;
 }
 
 .sign-in-select {
 	margin: 0 auto;
+	width: 90%;
 }
