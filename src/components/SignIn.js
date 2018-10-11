@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './css/SignIn.css'
 import { setAuthedUser } from '../actions/authedUser'
@@ -14,6 +15,7 @@ class SignIn extends Component {
 
 	authorizeUser = () => {
 		this.props.dispatch(setAuthedUser(this.state.authedUser))
+		this.props.history.push('/')
 	}
 
 	componentDidUpdate() {
@@ -23,7 +25,7 @@ class SignIn extends Component {
 	}
 
 	render() {
-		const { users } = this.props
+		const { users, authedUser } = this.props
 		return (
 			<div className='sign-in-page'>
 				<div className='sign-in-text'>
@@ -44,10 +46,11 @@ class SignIn extends Component {
 	}
 }
 
-function mapStateToProps({users}) {
+function mapStateToProps({authedUser, users}) {
 	return {
-		users: Object.values(users)
+		users: Object.values(users),
+		authedUser: authedUser
 	}
 }
 
-export default connect(mapStateToProps)(SignIn)
+export default withRouter(connect(mapStateToProps)(SignIn))

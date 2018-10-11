@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import SignIn from './SignIn'
@@ -16,11 +16,20 @@ class App extends Component {
       <Router>
         <div className="App">
           <Nav />
-          <SignIn />
+          <Route path='/signin' exact component={SignIn} />
+          {
+            !this.props.authedUser
+            ? <Redirect to='/signin' />
+            : null
+          }
         </div>
       </Router>
     );
   }
 }
-
-export default connect()(App)
+function mapStateToProps({authedUser}) {
+  return {
+    authedUser: authedUser
+  }
+}
+export default connect(mapStateToProps)(App)

@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser'
 
 class Nav extends Component {
   constructor(props) {
@@ -24,6 +25,11 @@ class Nav extends Component {
     if (!this.outerDivNode.current.contains(e.target)){
       this.setState({menuNavOpen: false})
     }
+  }
+
+  logout = () => {
+    this.props.dispatch(setAuthedUser(null))
+    this.props.history.push('/signin')
   }
 
   render() {
@@ -52,6 +58,7 @@ class Nav extends Component {
         </nav>
         {
           !authedUser
+              // Small trick to keep hamburger in place, while a user has not been logged in.
             ? <nav className='nav'>
                 <ul>
                   <li className='placeholder-li'>
@@ -75,7 +82,7 @@ class Nav extends Component {
                     Icon
                   </li>
                   <li>
-                    Logout
+                    <a onClick={this.logout}>Logout</a>
                   </li>
                 </ul>
               </nav>
@@ -93,4 +100,4 @@ function mapStateToProps({authedUser, users}){
   }
 }
 
-export default connect(mapStateToProps)(Nav)
+export default withRouter(connect(mapStateToProps)(Nav))

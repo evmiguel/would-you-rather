@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,500');
+
+
 html, body {
 	height: 100%;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,500');
+a {
+	cursor: pointer;
+}
 
 /** NAV STYLING */
 .complete-nav {
