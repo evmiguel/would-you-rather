@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import SignIn from './SignIn'
 import Nav from './Nav'
+import Home from './Home'
 import './css/App.css'
 
 class App extends Component {
@@ -16,13 +17,14 @@ class App extends Component {
       <Router>
         <div className="App">
           <Nav />
-          <Route path='/signin' exact component={SignIn} />
+          <Route path='/signin' component={SignIn} />
           {
-            // Promp user to sign in on page load
+            // Promp user to sign in on page
             !this.props.authedUser
             ? <Redirect to='/signin' />
             : null
           }
+          <Route path='/' exact component={Home} />
         </div>
       </Router>
     );

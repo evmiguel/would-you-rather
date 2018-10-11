@@ -19,7 +19,7 @@ class SignIn extends Component {
 	}
 
 	componentDidUpdate() {
-		if (!this.state.authedUser && this.props.users) {
+		if (!this.state.authedUser && this.props.users.length > 0) {
 			this.setState({authedUser: this.props.users[0].id})
 		}
 	}
