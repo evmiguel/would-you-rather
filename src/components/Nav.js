@@ -29,6 +29,7 @@ class Nav extends Component {
 
   logout = () => {
     this.props.dispatch(setAuthedUser(null))
+    // When user is logged out, return to the signin page
     this.props.history.push('/signin')
   }
 

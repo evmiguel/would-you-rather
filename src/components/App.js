@@ -18,6 +18,7 @@ class App extends Component {
           <Nav />
           <Route path='/signin' exact component={SignIn} />
           {
+            // Promp user to sign in on page load
             !this.props.authedUser
             ? <Redirect to='/signin' />
             : null
