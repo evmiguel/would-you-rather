@@ -1,0 +1,8 @@
+.question-box {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card h3 {
+	text-align: center;
+}

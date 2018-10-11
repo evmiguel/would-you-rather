@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import WouldYouRatherCard from './WouldYouRatherCard'
+import './css/Home.css'
 
 class Home extends Component {
 	render() {
@@ -18,11 +19,11 @@ class Home extends Component {
 
         return (
         	<div className='home-dashboard'>
-	        	<div className='answered-questions'>
-	        		<h1>Answered Questions</h1>
+        		<div className='unanswered-questions'>
+	        		<h1>Unanswered Questions</h1>
 	        		<ul>
 	        			{
-	        				Object.keys(userAnswers).map(answer => (
+	        				Object.keys(unansweredQuestions).map(answer => (
 	        					<li key={questions[answer].id}>
 	        						<WouldYouRatherCard
 	        							author={users[questions[answer].author].name}
@@ -33,11 +34,11 @@ class Home extends Component {
 	        			}
 	        		</ul>
 	        	</div>
-	        	<div className='unanswered-questions'>
-	        		<h1>Unanswered Questions</h1>
+	        	<div className='answered-questions'>
+	        		<h1>Answered Questions</h1>
 	        		<ul>
 	        			{
-	        				Object.keys(unansweredQuestions).map(answer => (
+	        				Object.keys(userAnswers).map(answer => (
 	        					<li key={questions[answer].id}>
 	        						<WouldYouRatherCard
 	        							author={users[questions[answer].author].name}
