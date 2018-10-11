@@ -10,6 +10,56 @@ html, body {
     justify-content: space-evenly;
 }
 
+
+.burger-nav {
+	display: none;
+}
+
+.placeholder-li {
+	color: #fff;
+}
+
+@media screen and (max-width: 480px){
+	.burger-nav {
+		display: block;
+		cursor: pointer;
+		margin: auto 0;
+    	font-size: larger;
+	}
+
+	nav.menu-nav ul {
+	    flex-flow: column;
+	    padding: 0;
+	    margin: 0 21px 0 0;
+	}
+
+	nav.menu-nav {
+	    z-index: 10;
+	    background-color: #fff;
+	    width: 70%;
+	    position: absolute;
+	    /* This trasform moves the drawer off canvas. */
+	    -webkit-transform: translate(-350px, 0);
+	    transform: translate(-350px, 0);
+	    /* Optionally, we animate the drawer. */
+	    transition: transform 0.3s ease;
+	}
+
+	nav.menu-nav li {
+		display: list-item;
+	    border-bottom: 1px solid #E0E0E0;
+	    width: 93%;
+	    padding: 20px;
+	    text-align: left;
+  	}
+	nav.menu-nav.open {
+    	-webkit-transform: translate(0, 0);
+    	transform: translate(0, 0);
+    	left: 0;
+  	}
+
+}
+
 .nav ul {
   display: flex;
   flex-direction: row;
