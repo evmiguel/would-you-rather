@@ -18,12 +18,6 @@ class App extends Component {
         <div className="App">
           <Nav />
           <Route path='/signin' component={SignIn} />
-          {
-            // Promp user to sign in on page
-            !this.props.authedUser
-            ? <Redirect to='/signin' />
-            : null
-          }
           <Route path='/' exact component={Home} />
         </div>
       </Router>

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { Component, Fragment } from 'react'
+import { Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Home extends Component {
@@ -17,7 +17,16 @@ class Home extends Component {
         		<ul>
         			{
         				Object.keys(userAnswers).map(answer => (
-        					<li key={questions[answer].id}>{questions[answer].id}</li>
+        					<li key={questions[answer].id}>
+        						<h3>{users[questions[answer].author].name} asks:</h3>
+        						<div className='question-box'>
+        							<p>ICON</p>
+        							<div className='question-text'>
+        								<h4>Would you rather</h4>
+        								<p>...{questions[answer].optionOne.text.substring(0, questions[answer].optionOne.text.length-5)}...</p>
+        							</div>
+        						</div>
+        					</li>
         				))
         			}
         		</ul>
@@ -33,4 +42,4 @@ function mapStateToProps({authedUser, users, questions}) {
 		questions
 	}
 }
-export default connect(mapStateToProps)(Home)
+export default withRouter(connect(mapStateToProps)(Home))

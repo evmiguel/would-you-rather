@@ -18,10 +18,18 @@ class SignIn extends Component {
 		this.props.history.push('/')
 	}
 
-	componentDidUpdate() {
+	setLocalAuthedUser = () => {
 		if (!this.state.authedUser && this.props.users.length > 0) {
 			this.setState({authedUser: this.props.users[0].id})
 		}
+	}
+
+	componentDidMount() {
+		this.setLocalAuthedUser()
+	}
+
+	componentDidUpdate() {
+		this.setLocalAuthedUser()
 	}
 
 	render() {

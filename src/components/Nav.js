@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import { NavLink, withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 
@@ -30,7 +30,7 @@ class Nav extends Component {
   logout = () => {
     this.props.dispatch(setAuthedUser(null))
     // When user is logged out, return to the signin page
-    this.props.history.push('/signin')
+    this.props.history.push('/')
   }
 
   render() {
@@ -83,7 +83,7 @@ class Nav extends Component {
                     Icon
                   </li>
                   <li>
-                    <a onClick={this.logout}>Logout</a>
+                    <Link to='/' onClick={this.logout}>Logout</Link>
                   </li>
                 </ul>
               </nav>
