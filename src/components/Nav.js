@@ -2,6 +2,7 @@ import React, { Component, createRef } from 'react'
 import { NavLink, withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import './css/Nav.css'
 
 class Nav extends Component {
   constructor(props) {
@@ -33,12 +34,18 @@ class Nav extends Component {
     this.props.history.push('/')
   }
 
+  navPress = (e) => {
+    if (e.keyCode === 27) {
+      this.setState({menuNavOpen: false})
+    }
+  }
+
   render() {
     const { authedUser, users } = this.props
     return (
       <div className='complete-nav' ref={this.outerDivNode}>
-        <a className='burger-nav' onClick={this.hamburgerClick}>&#9776;</a>
-        <nav className={`nav menu-nav ${this.state.menuNavOpen && 'open'}`}>
+        <a className='burger-nav' role="button" tabIndex="0" onClick={this.hamburgerClick} onKeyPress={this.hamburgerClick}>&#9776;</a>
+        <nav className={`nav menu-nav ${this.state.menuNavOpen && 'open'}`} onKeyUp={this.navPress}>
           <ul>
             <li>
               <NavLink to='/' exact >
