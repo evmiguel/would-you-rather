@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import WouldYouRatherCard from './WouldYouRatherCard'
+import PollPreview from './PollPreview'
 import './css/Home.css'
 
 const UNANSWERED = 'unanswered'
@@ -48,10 +49,9 @@ class Home extends Component {
 	        				Object.keys(this.state.questionList === UNANSWERED ? unansweredQuestions : userAnswers).map(answer => (
 	        					<li key={questions[answer].id}>
 	        						<WouldYouRatherCard
-	        							id={questions[answer].id}
 	        							author={users[questions[answer].author].name}
-	        							optionOne={questions[answer].optionOne.text}
-	        							optionTwo={questions[answer].optionTwo.text} />
+	        							child={<PollPreview id={questions[answer].id} text={questions[answer].optionOne.text} />}
+								/>
 	        					</li>
 	        				))
 	        			}
