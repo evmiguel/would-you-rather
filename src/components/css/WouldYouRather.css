@@ -3,6 +3,10 @@
     justify-content: space-evenly;
 }
 
+h1, h3 {
+	font-family: 'Roboto', sans-serif;
+}
+
 .card h3 {
 	text-align: center;
 }

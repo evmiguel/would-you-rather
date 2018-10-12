@@ -4,7 +4,22 @@ import { connect } from 'react-redux'
 import WouldYouRatherCard from './WouldYouRatherCard'
 import './css/Home.css'
 
+const UNANSWERED = 'unanswered'
+const ANSWERED = 'answered'
+
 class Home extends Component {
+	state = {
+		questionList: UNANSWERED
+	}
+
+	changeQuestionList = (e) => {
+		if(!e.target.textContent.toLowerCase().includes(UNANSWERED)) {
+			this.setState({questionList: ANSWERED })
+		} else {
+			this.setState({questionList: UNANSWERED})
+		}
+	}
+
 	render() {
 		const { questions, users, authedUser } = this.props
 		// Promp user to sign in on page
@@ -19,26 +34,18 @@ class Home extends Component {
 
         return (
         	<div className='home-dashboard'>
-        		<div className='unanswered-questions'>
-	        		<h1>Unanswered Questions</h1>
-	        		<ul>
-	        			{
-	        				Object.keys(unansweredQuestions).map(answer => (
-	        					<li key={questions[answer].id}>
-	        						<WouldYouRatherCard
-	        							author={users[questions[answer].author].name}
-	        							optionOne={questions[answer].optionOne.text}
-	        							optionTwo={questions[answer].optionTwo.text} />
-	        					</li>
-	        				))
-	        			}
-	        		</ul>
+	        	<div className='questions-header'>
+	        		<div className='unanswered-questions' onClick={this.changeQuestionList}>
+		        		<h1>Unanswered Questions</h1>
+		        	</div>
+		        	<div className='answered-questions' onClick={this.changeQuestionList}>
+		        		<h1>Answered Questions</h1>
+		        	</div>
 	        	</div>
-	        	<div className='answered-questions'>
-	        		<h1>Answered Questions</h1>
+	        	<div className='question-list'>
 	        		<ul>
 	        			{
-	        				Object.keys(userAnswers).map(answer => (
+	        				Object.keys(this.state.questionList === UNANSWERED ? unansweredQuestions : userAnswers).map(answer => (
 	        					<li key={questions[answer].id}>
 	        						<WouldYouRatherCard
 	        							author={users[questions[answer].author].name}
