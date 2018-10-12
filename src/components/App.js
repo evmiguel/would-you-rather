@@ -5,6 +5,7 @@ import { handleInitialData } from '../actions/shared'
 import SignIn from './SignIn'
 import Nav from './Nav'
 import Home from './Home'
+import Poll from './Poll'
 import './css/App.css'
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <Nav />
           <Route path='/signin' component={SignIn} />
           <Route path='/' exact component={Home} />
+          <Route path='/poll/:id' component={Poll} />
         </div>
       </Router>
     );

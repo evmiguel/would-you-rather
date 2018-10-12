@@ -1,12 +1,32 @@
 .question-box {
     display: flex;
-    justify-content: space-evenly;
+    width: 100%;
 }
 
 h1, h3 {
 	font-family: 'Roboto', sans-serif;
 }
 
-.card h3 {
-	text-align: center;
+.icon {
+	border-right: thin solid black;
+    margin-top: 0;
+    width: 30%;
+    margin: 0 auto;
+    text-align: center
+}
+
+.question-text {
+	width: 70%;
+    text-align: center;
+}
+
+.question-asks {
+	border-bottom: thin solid black;
+	text-align: left;
+	margin: 0;
+	padding: .5em 0 .5em .3em ;
+}
+.poll-button {
+	width: 90%;
+	margin: 0 auto;
 }

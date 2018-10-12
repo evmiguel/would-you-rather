@@ -48,6 +48,7 @@ class Home extends Component {
 	        				Object.keys(this.state.questionList === UNANSWERED ? unansweredQuestions : userAnswers).map(answer => (
 	        					<li key={questions[answer].id}>
 	        						<WouldYouRatherCard
+	        							id={questions[answer].id}
 	        							author={users[questions[answer].author].name}
 	        							optionOne={questions[answer].optionOne.text}
 	        							optionTwo={questions[answer].optionTwo.text} />

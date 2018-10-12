@@ -20,6 +20,7 @@ class Nav extends Component {
 
   componentDidMount() {
     document.addEventListener('click', this.outerDivClick, false)
+    document.addEventListener('keyup', this.navPress)
   }
 
   outerDivClick = (e) => {
