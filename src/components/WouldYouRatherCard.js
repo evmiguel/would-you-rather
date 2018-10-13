@@ -9,7 +9,7 @@ const WouldYouRatherCard = (props) => {
 			<div className='question-box'>
 				<p className='icon'>ICON</p>
 				<div className='question-text'>
-					<h4>Would you rather</h4>
+					<h4>Would You Rather...</h4>
 					{props.child}
 				</div>
 			</div>

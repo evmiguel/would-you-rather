@@ -1,14 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import WouldYouRatherCard from './WouldYouRatherCard'
 
 class Poll extends Component {
-	componentDidUpdate() {
-		console.log(this.props)
-	}
 	render() {
+		const { question, author } = this.props
 		return(
 			<div className='poll'>
-				POLL
+				<WouldYouRatherCard
+					author={author && author.name}
+					child={
+						<Fragment>
+							<h4>{question && question.optionOne.text}</h4>
+							<h4>{question && question.optionTwo.text}</h4>
+						</Fragment>
+					}
+				/>
 			</div>
 		)
 	}
