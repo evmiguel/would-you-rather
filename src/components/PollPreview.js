@@ -7,7 +7,7 @@ const PollPreview = (props) => {
 	return (
 		<div>
 			<p>...{props.text.substring(0, props.text.length - toSubtract )}...</p>
-			<button className='poll-button'><Link to={`/poll/${props.id}`}>View Poll</Link></button>
+			<Link to={`/poll/${props.id}`}><button className='poll-button'>View Poll</button></Link>
 		</div>
 	)
 }
