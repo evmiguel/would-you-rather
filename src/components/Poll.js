@@ -7,7 +7,6 @@ import PollChoices from './PollChoices'
 class Poll extends Component {
 	render() {
 		const { question, author, authedUser } = this.props
-		console.log(question)
 		if (!authedUser) { return <Redirect to='/signin' /> }
 		return(
 			<div className='poll'>
@@ -16,6 +15,7 @@ class Poll extends Component {
 					child={
 						question &&
 						<PollChoices
+							id={question.id}
 							optionOne={question.optionOne.text}
 							optionTwo={question.optionTwo.text}
 						/>
