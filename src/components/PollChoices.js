@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleSaveQuestionAnswer } from '../actions/questions'
+import { handleSaveQuestionAnswer } from '../actions/shared'
 
 class PollChoices extends Component {
 	state = {
@@ -13,7 +13,6 @@ class PollChoices extends Component {
 			chosenOption: this.props.optionOne,
 			option: 'optionOne'
 		})
-		console.log(this.props.questions[this.props.id])
 	}
 
 	handleChange = (e, option) => {
@@ -36,7 +35,6 @@ class PollChoices extends Component {
 
 	render() {
 		const { optionOne, optionTwo } = this.props
-
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<ul>
@@ -72,11 +70,12 @@ class PollChoices extends Component {
 }
 
 
-function mapStateToProps({ questions, authedUser }, {props}){
+function mapStateToProps({ questions, authedUser, users }, {props}){
 	return {
 		...props,
 		questions,
-		authedUser
+		authedUser,
+		users
 	}
 }
 
