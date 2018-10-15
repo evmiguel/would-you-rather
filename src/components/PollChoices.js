@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { handleSaveQuestionAnswer } from '../actions/shared'
 
 class PollChoices extends Component {
@@ -24,13 +25,14 @@ class PollChoices extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		const {questions, id, authedUser, dispatch} = this.props
+		const {questions, id, authedUser, dispatch, history} = this.props
 		dispatch(
 			handleSaveQuestionAnswer({
 				qid: id,
 				authedUser: authedUser,
 				answer: this.state.option
 			}))
+		history.push(`/results/${id}`)
 	}
 
 	render() {
@@ -79,4 +81,4 @@ function mapStateToProps({ questions, authedUser, users }, {props}){
 	}
 }
 
-export default connect(mapStateToProps)(PollChoices)
+export default withRouter(connect(mapStateToProps)(PollChoices))

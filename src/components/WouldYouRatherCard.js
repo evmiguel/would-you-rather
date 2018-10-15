@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './css/WouldYouRather.css'
+import './css/Card.css'
 
 const WouldYouRatherCard = (props) => {
 	return (
