@@ -44,7 +44,7 @@ class Nav extends Component {
   render() {
     const { authedUser, users } = this.props
     return (
-      <div className='complete-nav' ref={this.outerDivNode}>
+      <header className='complete-nav' ref={this.outerDivNode}>
         <a className='burger-nav' role="button" tabIndex="0" onClick={this.hamburgerClick} onKeyPress={this.hamburgerClick}>&#9776;</a>
         <nav className={`nav menu-nav ${this.state.menuNavOpen && 'open'}`} onKeyUp={this.navPress}>
           <ul>
@@ -97,7 +97,7 @@ class Nav extends Component {
               </nav>
 
         }
-      </div>
+      </header>
     )
   }
 }

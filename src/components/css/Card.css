@@ -3,10 +3,21 @@
     width: 100%;
 }
 
+/*.card {
+	border: thin solid black;
+}*/
+
 h1, h3 {
 	font-family: 'Roboto', sans-serif;
 }
 
+/*@media screen and (min-width: 500px) {
+	.card {
+		width: 50%;
+		margin: 0 auto;
+	}
+}
+*/
 .icon {
 	border-right: thin solid black;
     margin-top: 0;

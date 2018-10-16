@@ -1,7 +1,8 @@
-import { getInitialData } from '../utils/api'
+import { getInitialData, saveQuestionAnswerBackend, saveQuestionBackend } from '../utils/api'
 import { receiveUsers } from './users'
 import { receiveQuestions } from './questions'
 export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
+export const SAVE_QUESTION = 'SAVE_QUESTION'
 
 
 export function handleInitialData () {
@@ -22,8 +23,21 @@ function saveQuestionAnswer({authedUser, qid, answer}) {
 	}
 }
 
+function saveQuestion(question){
+	return {
+		type: SAVE_QUESTION,
+		question
+	}
+}
+
 export function handleSaveQuestionAnswer (answer) {
 	return (dispatch) => {
-		dispatch(saveQuestionAnswer(answer))
+		return saveQuestionAnswerBackend(answer).then(dispatch(saveQuestionAnswer(answer)))
+	}
+}
+
+export function handleSaveQuestion(question) {
+	return (dispatch) => {
+		return saveQuestionBackend(question).then(question => { dispatch(saveQuestion(question))})
 	}
 }
