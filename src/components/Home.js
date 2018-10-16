@@ -50,7 +50,11 @@ class Home extends Component {
 	        					<li key={questions[answer].id}>
 	        						<WouldYouRatherCard
 	        							author={users[questions[answer].author].name}
-	        							child={<PollPreview id={questions[answer].id} text={questions[answer].optionOne.text} />}
+	        							child={<PollPreview
+	        										id={questions[answer].id}
+	        										text={questions[answer].optionOne.text}
+	        										type={this.state.questionList}
+	        									/>}
 								/>
 	        					</li>
 	        				))
