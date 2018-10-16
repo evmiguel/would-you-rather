@@ -41,3 +41,14 @@ h1, h3 {
 	width: 90%;
 	margin: 0 auto;
 }
+
+.or {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    line-height: 0;
+}
+
+.or span {
+    background: #fff;
+    padding: 0 15px;
+}
