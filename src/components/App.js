@@ -6,7 +6,6 @@ import SignIn from './SignIn'
 import Nav from './Nav'
 import Home from './Home'
 import Poll from './Poll'
-import ResultsCard from './ResultsCard'
 import './css/App.css'
 
 class App extends Component {
@@ -22,7 +21,7 @@ class App extends Component {
           <Route path='/signin' component={SignIn} />
           <Route path='/' exact component={Home} />
           <Route path='/poll/:id' component={Poll} />
-          <Route path='/results/:id' component={ResultsCard} />
+          <Route path='/results/:id' component={Poll} />
         </div>
       </Router>
     );
