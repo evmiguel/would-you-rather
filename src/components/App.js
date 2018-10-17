@@ -7,6 +7,7 @@ import Nav from './Nav'
 import Home from './Home'
 import Poll from './Poll'
 import NewQuestion from './NewQuestion'
+import LeaderBoard from './LeaderBoard'
 import './css/App.css'
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path='/poll/:id' component={Poll} />
             <Route path='/results/:id' component={Poll} />
             <Route path='/new' component={NewQuestion} />
+            <Route path='/leader' component={LeaderBoard} />
           </main>
         </div>
       </Router>
