@@ -14,7 +14,7 @@
 	background-color: #d3d4d47d;
 }
 
-h1, h3, h4 {
+h1, h3, h4, .vote-text, .fraction-results-bar, .choice {
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -78,6 +78,10 @@ h1, h3, h4 {
 	width: 100%;
 }
 
+.results-option h4 {
+	padding-left: .5em;
+}
+
 .results-option {
 	text-align: left;
     position: relative;
@@ -90,10 +94,51 @@ h1, h3, h4 {
 	background: #adccc442;
 }
 
+.result-filled-header {
+	color: #577970;
+}
+
+.result-bar {
+	width: 80%;
+    height: 1.7em;
+    background-color: #80808078;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.fraction-results-bar {
+	height: 100%;
+	background-color: #4cb79b;
+	border-radius: 5px;
+}
+
+.fraction-results-bar {
+	text-align: right;
+	color: #fff;
+}
+
+.fraction-results-bar div {
+	padding: .3em .3em;
+}
+
+.vote-text {
+	margin: .3em;
+	text-align: center;
+}
+
 .choice {
     position: absolute;
     left: 90%;
-    bottom: 65%;
+    bottom: 90%;
+	background: #f7d752;
+    padding: .4em;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+}
+
+.choice h6 {
+	margin: 0;
 }
 
 @media screen and (min-width: 500px) and (max-width: 699px) {

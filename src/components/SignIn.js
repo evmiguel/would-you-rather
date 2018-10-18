@@ -18,20 +18,6 @@ class SignIn extends Component {
 		this.props.history.push('/')
 	}
 
-	setLocalAuthedUser = () => {
-		if (!this.state.authedUser && this.props.users.length > 0) {
-			this.setState({authedUser: this.props.users[0].id})
-		}
-	}
-
-	componentDidMount() {
-		this.setLocalAuthedUser()
-	}
-
-	componentDidUpdate() {
-		this.setLocalAuthedUser()
-	}
-
 	render() {
 		const { users, authedUser } = this.props
 		return (
@@ -42,6 +28,7 @@ class SignIn extends Component {
 				</div>
 				<h1 className='sign-in-prompt-text'>Sign in</h1>
 				<select className='sign-in-select' value={this.state.authedUser} onChange={this.changeUser}>
+					<option default disabled defaultValue value="">Select User</option>
 					{
 						users.map(user => ((
 							<option key={user.id} value={user.id}>{user.name}</option>
