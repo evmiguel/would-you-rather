@@ -1,18 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import './css/Card.css'
 
 const OPTION_ONE = 'optionOne'
 const OPTION_TWO = 'optionTwo'
 
 const PollResults = (props) => {
 	return (
-		<div>
-			<h4>Would you rather {props.optionOne}?</h4>
-			{props.answer === OPTION_ONE && <h6>Your choice!</h6>}
-			<p>{props.optionOneVotes} of {props.totalVotes} votes</p>
-			<h4>Would you rather {props.optionTwo}?</h4>
-			{props.answer === OPTION_TWO && <h6>Your choice!</h6>}
-			<p>{props.optionTwoVotes} of {props.totalVotes} votes</p>
+		<div className='results-card'>
+			<div className='results-option'>
+				<h4>Would you rather {props.optionOne}?</h4>
+				{props.answer === OPTION_ONE && <h6 className='choice'>Your choice!</h6>}
+				<p>{props.optionOneVotes} of {props.totalVotes} votes</p>
+			</div>
+			<div className='results-option'>
+				<h4>Would you rather {props.optionTwo}?</h4>
+				{props.answer === OPTION_TWO && <h6 className='choice'>Your choice!</h6>}
+				<p>{props.optionTwoVotes} of {props.totalVotes} votes</p>
+			</div>
 		</div>
 	)
 }

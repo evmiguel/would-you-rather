@@ -15,7 +15,7 @@ const WouldYouRatherCard = (props) => {
 			<div className='question-box'>
 				<img src={img} className='icon'/>
 				<div className='question-text'>
-					{props.type !== RESULTS ? <h4 className='would-rather-heading'>Would You Rather ...</h4> : <h1>Results</h1>}
+					<h4 className='would-rather-heading'>{props.type !== RESULTS ? 'Would You Rather ...': 'Results:'}</h4>
 					{props.child}
 				</div>
 			</div>
