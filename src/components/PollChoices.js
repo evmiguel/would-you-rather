@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { handleSaveQuestionAnswer } from '../actions/shared'
+import './css/Poll.css'
 
 class PollChoices extends Component {
 	state = {
@@ -38,7 +39,7 @@ class PollChoices extends Component {
 	render() {
 		const { optionOne, optionTwo } = this.props
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form className='poll-form' onSubmit={this.handleSubmit}>
 				<ul>
 					<li>
 						<label>
@@ -65,7 +66,7 @@ class PollChoices extends Component {
 						</label>
 					</li>
 				</ul>
-				<input type='submit' value='Submit' />
+				<input className='submit-btn' type='submit' value='Submit' />
 			</form>
 		)
 	}

@@ -1,0 +1,28 @@
+.poll-form {
+	text-align: left
+}
+
+.poll-form ul {
+	padding: 0;
+	margin: 0;
+}
+
+input[type="radio"] {
+  margin-right: 1em;
+}
+
+input[type="radio"]:checked {
+	background: black;
+}
+
+
+.submit-btn {
+	width: 100%;
+    margin: .5em auto;
+    font-weight: bolder;
+    background-color: #57b39b;
+    color: #fff;
+    height: 2.5em;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}

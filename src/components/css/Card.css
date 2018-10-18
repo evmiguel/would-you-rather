@@ -3,17 +3,32 @@
     width: 100%;
 }
 
-/*.card {
-	border: thin solid black;
-}*/
+.poll {
+	border: #9a9797 thin solid;
+	border-radius: 10px;
+	width: 100%;
+	margin: 0 auto;
+}
 
-h1, h3 {
+.card-label {
+	background-color: #d3d4d47d;
+}
+
+h1, h3, h4 {
 	font-family: 'Roboto', sans-serif;
+}
+
+.would-rather-heading {
+	font-size: 18pt;
+	text-align: left;
+	margin: 0;
+	padding-bottom: 10px;
 }
 
 .icon {
 	width: 30%;
     height: 30%;
+    margin: auto;
 }
 
 @media screen and (min-width: 1000px) {
@@ -26,15 +41,21 @@ h1, h3 {
 .question-text {
 	width: 70%;
     text-align: center;
-    border-left: thin solid black;
+    border-left: thin solid #d3d4d47d;
+    padding: 0 1em;
+    border-bottom-width: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0px;
 }
 
 .question-asks {
-	border-bottom: thin solid black;
+	border-bottom: thin solid #d3d4d47d;
 	text-align: left;
 	margin: 0;
-	padding: .5em 0 .5em .3em ;
+	padding: .7em 0 .7em .5em;
 }
+
 .poll-button {
 	width: 90%;
 	margin: 0 auto;
@@ -49,4 +70,30 @@ h1, h3 {
 .or span {
     background: #fff;
     padding: 0 15px;
+}
+
+@media screen and (min-width: 500px) and (max-width: 699px) {
+	.poll {
+	    width: 70%;
+	}
+}
+
+
+@media screen and (min-width: 700px) and (max-width: 899px) {
+	.poll {
+	    width: 50%;
+	}
+}
+
+@media screen and (min-width: 890px) and (max-width: 940px){
+	.poll {
+	    width: 40%;
+	}
+}
+
+
+@media screen and (min-width: 931px){
+	.poll {
+	    width: 35%;
+	}
 }
