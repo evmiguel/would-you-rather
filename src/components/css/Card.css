@@ -72,15 +72,28 @@ h1, h3, h4 {
     padding: 0 15px;
 }
 
+/* RESULTS STYLING **/
+
+.results-card {
+	width: 100%;
+}
+
 .results-option {
 	text-align: left;
-	position: relative;
+    position: relative;
+    border: #aeccc4 solid;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.result-filled {
+	background: #adccc442;
 }
 
 .choice {
     position: absolute;
     left: 90%;
-    bottom: 60%;
+    bottom: 65%;
 }
 
 @media screen and (min-width: 500px) and (max-width: 699px) {
