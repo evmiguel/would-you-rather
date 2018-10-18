@@ -11,24 +11,22 @@ h1, h3 {
 	font-family: 'Roboto', sans-serif;
 }
 
-/*@media screen and (min-width: 500px) {
-	.card {
-		width: 50%;
-		margin: 0 auto;
-	}
-}
-*/
 .icon {
-	border-right: thin solid black;
-    margin-top: 0;
-    width: 30%;
-    margin: 0 auto;
-    text-align: center
+	width: 30%;
+    height: 30%;
+}
+
+@media screen and (min-width: 1000px) {
+	.icon {
+		width: 25%;
+	    height: 25%;
+	}
 }
 
 .question-text {
 	width: 70%;
     text-align: center;
+    border-left: thin solid black;
 }
 
 .question-asks {

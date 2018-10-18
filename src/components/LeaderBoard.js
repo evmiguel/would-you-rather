@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 const LeaderBoard = (props) => {
-	let { users } = props
+	let { users, authedUser } = props
+	if (!authedUser) { return <Redirect to='/signin' /> }
 	return (
 		<div className='leaderboard'>
 			<ul>
@@ -20,7 +22,7 @@ const LeaderBoard = (props) => {
 	)
 }
 
-function mapStateToProps({users}){
+function mapStateToProps({users, authedUser}){
 	// Make a new user object so that users doesn't get overwritten.
 	let userObj = Object.assign({}, users)
 	Object.values(users).map(user => userObj[user.id]['score'] = Object.keys(user.answers).length + user.questions.length)
@@ -34,7 +36,8 @@ function mapStateToProps({users}){
 			} else {
 				return 0
 			}
-		})
+		}),
+		authedUser
 	}
 }
 
