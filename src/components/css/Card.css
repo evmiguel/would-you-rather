@@ -3,7 +3,7 @@
     width: 100%;
 }
 
-.poll {
+.poll, .card {
 	border: #9a9797 thin solid;
 	border-radius: 10px;
 	width: 100%;
@@ -12,6 +12,8 @@
 
 .card-label {
 	background-color: #d3d4d47d;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
 h1, h3, h4, .vote-text, .fraction-results-bar, .choice {
@@ -19,7 +21,7 @@ h1, h3, h4, .vote-text, .fraction-results-bar, .choice {
 }
 
 .would-rather-heading {
-	font-size: 18pt;
+	font-size: 15pt;
 	text-align: left;
 	margin: 0;
 	padding-bottom: 10px;

@@ -26,3 +26,11 @@ input:checked {
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
 }
+
+.poll-button {
+    border: .2em solid #57b39b;
+    color: #57b39b;
+    height: 3em;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}

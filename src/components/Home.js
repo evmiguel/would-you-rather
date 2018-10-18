@@ -36,10 +36,10 @@ class Home extends Component {
         return (
         	<div className='home-dashboard'>
 	        	<div className='questions-header'>
-	        		<div className='unanswered-questions' onClick={this.changeQuestionList}>
+	        		<div className='unanswered-questions' aria-selected={this.state.questionList === UNANSWERED ? 'true' : 'false'} onClick={this.changeQuestionList}>
 		        		<h1>Unanswered Questions</h1>
 		        	</div>
-		        	<div className='answered-questions' onClick={this.changeQuestionList}>
+		        	<div className='answered-questions' aria-selected={this.state.questionList === ANSWERED ? 'true' : 'false'} onClick={this.changeQuestionList}>
 		        		<h1>Answered Questions</h1>
 		        	</div>
 	        	</div>

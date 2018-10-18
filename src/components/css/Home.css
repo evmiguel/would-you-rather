@@ -5,31 +5,52 @@ h1, h3 {
 .answered-questions, .unanswered-questions {
 	text-align: center;
 	cursor: pointer;
+	width: 50%;
+}
+
+.answered-questions:hover, .answered-questions[aria-selected="true"],
+.unanswered-questions:hover, .unanswered-questions[aria-selected="true"] {
+	background-color: #e9eaea;
 }
 
 .unanswered-questions {
-	border-right: thin solid black;
+	border-right: thin solid #9a9797;
 }
 
 .questions-header {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
-	border-left: thin solid black;
-	border-right: thin solid black;
-	border-top: thin solid black;
+	border-left: thin solid #9a9797;
+	border-right: thin solid #9a9797;
+	border-top: thin solid #9a9797;
 	align-items: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.questions-header > div > h1 {
+    font-size: 16pt;
+    text-align: center;
+    color: #4cb79b;
+}
+
+.question-list {
+	border: thin solid #9a9797;
+	margin: 0 auto;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .question-list ul {
-	border: thin solid black;
 	margin: 0 auto;
 	padding: 0;
 }
 
 .question-list li {
 	padding: 0;
-	border-bottom: thin solid black;
+    width: 90%;
+    margin: .5em auto;
 }
 
 @media screen and (min-width: 501px) and (max-width: 700px) {
@@ -41,17 +62,39 @@ h1, h3 {
 	.questions-header {
 		justify-content: space-evenly;
 	}
+
+	.question-list {
+		width: 60%;
+	}
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 700px) and (max-width: 999px) {
+	.questions-header {
+		width: 65%;
+   		margin: 0 auto;
+	}
+
+	.question-list ul {
+	    padding: 0;
+	}
+
+	.question-list {
+		width: 65%;
+	}
+}
+
+
+@media screen and (min-width: 1000px) {
 	.questions-header {
 		width: 50%;
    		margin: 0 auto;
 	}
 
 	.question-list ul {
-		width: 50%;
 	    padding: 0;
-	    border: thin solid black;
+	}
+
+	.question-list {
+		width: 50%;
 	}
 }
