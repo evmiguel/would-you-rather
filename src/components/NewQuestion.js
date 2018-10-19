@@ -25,22 +25,26 @@ class NewQuestion extends Component {
 		const { authedUser } = this.props
 		if (!authedUser) { return <Redirect to='/signin' /> }
 		return (
-			<div className="card">
+			<div className="card new-question">
 				<h2 className='create-title'>Create New Question</h2>
-				<h3 className='create-subtitle'>Complete the question:</h3>
-				<h4>Would you rather ...</h4>
-				<form onSubmit={this.submitQuestion} >
-					<input type='text'
-						placeholder='Enter Option One Text Here'
-						value={this.state.optionOneText}
-						onChange={(e) => this.handleInputChange(e, 'optionOneText')} />
-					<p className='or'><span>OR</span></p>
-					<input type='text'
+				<div className='create-form'>
+					<h3 className='create-subtitle'>Complete the question:</h3>
+					<h4 className='would-you-rather-title'>Would you rather ...</h4>
+					<form onSubmit={this.submitQuestion} >
+						<input type='text'
+							className='option-input'
+							placeholder='Enter Option One Text Here'
+							value={this.state.optionOneText}
+							onChange={(e) => this.handleInputChange(e, 'optionOneText')} />
+						<p className='or'><span>OR</span></p>
+						<input type='text'
+							className='option-input'
 							placeholder='Enter Option Two Text Here'
 							value={this.state.optionTwoText}
 							onChange={(e) => this.handleInputChange(e, 'optionTwoText')} />
-					<button type='submit'>Submit</button>
-				</form>
+						<button type='submit' role='submit' className='submit-btn'>Submit</button>
+					</form>
+				</div>
 			</div>
 		)
 	}

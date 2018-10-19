@@ -3,6 +3,9 @@
     width: 100%;
 }
 
+
+/* GENERAL CARD STYLING **/
+
 .poll, .card {
 	border: #9a9797 thin solid;
 	border-radius: 10px;
@@ -16,7 +19,7 @@
 	border-top-right-radius: 5px;
 }
 
-h1, h3, h4, .vote-text, .fraction-results-bar, .choice {
+h1, h2, h3, h4, .vote-text, .fraction-results-bar, .choice {
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -40,6 +43,7 @@ h1, h3, h4, .vote-text, .fraction-results-bar, .choice {
 	}
 }
 
+/* QUESTION CARD STYLING **/
 .question-text {
 	width: 70%;
     text-align: center;
@@ -143,28 +147,64 @@ h1, h3, h4, .vote-text, .fraction-results-bar, .choice {
 	margin: 0;
 }
 
+/* NEW QUESTION STYLING **/
+.create-title {
+	text-align: center;
+    margin: 0;
+    padding: .5em 0;
+    border-bottom: #9a9797 thin solid;
+}
+
+.create-subtitle {
+	margin-top: .3em;
+	font-size: 12pt;
+}
+
+.create-form {
+    padding: .5em;
+}
+
+.would-you-rather-title {
+	margin-top: 0;
+	font-size: 15pt;
+}
+
+.option-input {
+ 	width: 100%;
+    padding: 1em;
+    margin: .5em 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.create-form form {
+	text-align: center;
+}
+
 @media screen and (min-width: 500px) and (max-width: 699px) {
-	.poll {
+	.poll, .new-question {
 	    width: 70%;
 	}
 }
 
 
 @media screen and (min-width: 700px) and (max-width: 899px) {
-	.poll {
+	.poll, .new-question {
 	    width: 50%;
 	}
 }
 
 @media screen and (min-width: 890px) and (max-width: 940px){
-	.poll {
+	.poll, .new-question {
 	    width: 40%;
 	}
 }
 
 
 @media screen and (min-width: 931px){
-	.poll {
+	.poll, .new-question {
 	    width: 35%;
 	}
 }

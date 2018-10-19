@@ -62,10 +62,6 @@ h1, h3 {
 	.questions-header {
 		justify-content: space-evenly;
 	}
-
-	.question-list {
-		width: 60%;
-	}
 }
 
 @media screen and (min-width: 700px) and (max-width: 999px) {
