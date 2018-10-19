@@ -48,17 +48,17 @@ class Nav extends Component {
         <a className='burger-nav' role="button" tabIndex="0" onClick={this.hamburgerClick} onKeyPress={this.hamburgerClick}>&#9776;</a>
         <nav className={`nav menu-nav ${this.state.menuNavOpen && 'open'}`} onKeyUp={this.navPress}>
           <ul>
-            <li className={!location.pathname.includes('new') && !location.pathname.includes('leader') ? 'selected' : 'unselected'}>
+            <li className={!this.state.menuNavOpen ? (!location.pathname.includes('new') && !location.pathname.includes('leader') ? 'selected' : 'unselected') : ''}>
               <NavLink to='/' exact >
                 Home
               </NavLink>
             </li>
-            <li className={location.pathname.includes('new') ? 'selected' : 'unselected'}>
+            <li className={!this.state.menuNavOpen ? (location.pathname.includes('new') ? 'selected' : 'unselected') : ''}>
               <NavLink to='/new'>
                 New Question
               </NavLink>
             </li>
-            <li className={location.pathname.includes('leader') ? 'selected' : 'unselected'}>
+            <li className={!this.state.menuNavOpen ? (location.pathname.includes('leader') ? 'selected' : 'unselected') : ''}>
               <NavLink to='/leader'>
                 Leader Board
               </NavLink>
