@@ -13,7 +13,7 @@ const WouldYouRatherCard = (props) => {
 				<h3 className='question-asks'>{props.type !== RESULTS ? `${props.author} asks:` : `Asked by ${props.author}`}</h3>
 			</div>
 			<div className='question-box'>
-				<img src={img} className='icon'/>
+				<img src={img} alt='Default user image icon' className='icon'/>
 				<div className='question-text'>
 					<h4 className='would-rather-heading'>{props.type !== RESULTS ? 'Would You Rather ...': 'Results:'}</h4>
 					{props.child}

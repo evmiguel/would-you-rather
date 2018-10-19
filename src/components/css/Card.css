@@ -134,8 +134,8 @@ h1, h2, h3, h4, .vote-text, .fraction-results-bar, .choice {
 
 .choice {
     position: absolute;
-    left: 90%;
-    bottom: 90%;
+    left: 85%;
+    bottom: 80%;
 	background: #f7d752;
     padding: .4em;
     border-radius: 50%;
