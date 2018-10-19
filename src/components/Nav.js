@@ -3,7 +3,6 @@ import { NavLink, withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 import './css/Nav.css'
-import img from '../img/userSmall.png'
 
 class Nav extends Component {
   constructor(props) {
@@ -85,11 +84,11 @@ class Nav extends Component {
 
             : <nav className='nav user-nav'>
                 <ul>
-                  <li>
+                  <li className='greeting'>
                     {`Hello, ${users[authedUser].name}`}
                   </li>
                   <li>
-                    <img src={img} alt='Default user image icon' className='nav-icon'/>
+                    <img src={ users[authedUser].avatarURL } alt='Default user image icon' className='nav-icon'/>
                   </li>
                   <li>
                     <Link to='/' onClick={this.logout}>Logout</Link>

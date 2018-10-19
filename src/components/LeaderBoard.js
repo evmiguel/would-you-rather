@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import './css/LeaderBoard.css'
 
 const LeaderBoard = (props) => {
 	let { users, authedUser } = props
@@ -9,11 +10,27 @@ const LeaderBoard = (props) => {
 		<div className='leaderboard'>
 			<ul>
 				{ users.map(user =>
-					<li key={user.id}>
-						<h2>{user.name}</h2>
-						<h3>Answered Questions: {Object.keys(user.answers).length}</h3>
-						<h3>Questions: {user.questions.length}</h3>
-						<h3>Score: {user.score}</h3>
+					<li key={user.id} className='card leader-card'>
+						<div className='user-rank-box'>
+							<img src={ process.env.PUBLIC_URL + user.avatarURL} alt='Default user image icon' className='icon'/>
+							<div className='rank-text'>
+								<h2>{user.name}</h2>
+								<div className='answered question-number'>
+									<h3>Answered Questions: </h3>
+									<h3>{Object.keys(user.answers).length}</h3>
+								</div>
+								<div className='question-number'>
+									<h3>Created Questions: </h3>
+									<h3>{user.questions.length}</h3>
+								</div>
+							</div>
+							<div className='score'>
+								<h3>Score</h3>
+								<div className='score-number'>
+									<h4>{user.score}</h4>
+								</div>
+							</div>
+						</div>
 					</li>
 					)
 				}

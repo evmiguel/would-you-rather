@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import './css/Card.css'
-import img from '../img/user.png'
 
 const POLL = 'poll'
 const RESULTS = 'results'
@@ -13,7 +13,7 @@ const WouldYouRatherCard = (props) => {
 				<h3 className='question-asks'>{props.type !== RESULTS ? `${props.author} asks:` : `Asked by ${props.author}`}</h3>
 			</div>
 			<div className='question-box'>
-				<img src={img} alt='Default user image icon' className='icon'/>
+				<img src={ '../' + props.user.avatarURL} alt='Default user image icon' className='icon'/>
 				<div className='question-text'>
 					<h4 className='would-rather-heading'>{props.type !== RESULTS ? 'Would You Rather ...': 'Results:'}</h4>
 					{props.child}
@@ -23,4 +23,11 @@ const WouldYouRatherCard = (props) => {
 	)
 }
 
-export default WouldYouRatherCard
+function mapStateToProps({authedUser, users}, props){
+	return {
+		...props,
+		user: users[authedUser]
+	}
+}
+
+export default connect(mapStateToProps)(WouldYouRatherCard)
