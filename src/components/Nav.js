@@ -45,7 +45,7 @@ class Nav extends Component {
     const { authedUser, users, location } = this.props
     return (
       <header className='complete-nav' ref={this.outerDivNode}>
-        <a className='burger-nav' role="button" tabIndex="0" onClick={this.hamburgerClick} onKeyPress={this.hamburgerClick}>&#9776;</a>
+        <div className='burger-nav' role="button" tabIndex="0" onClick={this.hamburgerClick} onKeyPress={this.hamburgerClick}>&#9776;</div>
         <nav className={`nav menu-nav ${this.state.menuNavOpen && 'open'}`} onKeyUp={this.navPress}>
           <ul>
             <li className={!this.state.menuNavOpen ? (!location.pathname.includes('add') && !location.pathname.includes('leaderboard') ? 'selected' : 'unselected') : ''}>
@@ -88,7 +88,7 @@ class Nav extends Component {
                     {`Hello, ${users[authedUser].name}`}
                   </li>
                   <li>
-                    <img src={ users[authedUser].avatarURL } alt='Default user image icon' className='nav-icon'/>
+                    <img src={ users[authedUser].avatarURL } alt='User icon' className='nav-icon'/>
                   </li>
                   <li>
                     <Link to='/' onClick={this.logout}>Logout</Link>

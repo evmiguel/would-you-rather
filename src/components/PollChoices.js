@@ -26,7 +26,7 @@ class PollChoices extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		const {questions, id, authedUser, dispatch, history} = this.props
+		const {id, authedUser, dispatch, history} = this.props
 		dispatch(
 			handleSaveQuestionAnswer({
 				qid: id,

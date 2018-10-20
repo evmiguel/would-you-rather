@@ -15,11 +15,14 @@ class SignIn extends Component {
 
 	authorizeUser = () => {
 		this.props.dispatch(setAuthedUser(this.state.authedUser))
-		this.props.history.push('/')
+
+		// if the user typed in a different route, redirect them after they've signed in
+		let prevRouterPath = (this.props.location.state !== undefined) ? this.props.location.state.previous.pathname : null
+		prevRouterPath ? this.props.history.push(prevRouterPath) : this.props.history.push('/')
 	}
 
 	render() {
-		const { users, authedUser } = this.props
+		const { users } = this.props
 		return (
 			<div className='sign-in-page'>
 				<div className='sign-in-text'>

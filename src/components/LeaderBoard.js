@@ -5,14 +5,19 @@ import './css/LeaderBoard.css'
 
 const LeaderBoard = (props) => {
 	let { users, authedUser } = props
-	if (!authedUser) { return <Redirect to='/signin' /> }
+	if (!authedUser) {
+		return <Redirect to={{
+							pathname: '/signin',
+							state: { previous: props.location }
+						}} />
+	}
 	return (
 		<div className='leaderboard'>
 			<ul>
 				{ users.map(user =>
 					<li key={user.id} className='card leader-card'>
 						<div className='user-rank-box'>
-							<img src={ process.env.PUBLIC_URL + user.avatarURL} alt='Default user image icon' className='icon'/>
+							<img src={ process.env.PUBLIC_URL + user.avatarURL} alt='Default user icon' className='icon'/>
 							<div className='rank-text'>
 								<h2>{user.name}</h2>
 								<div className='answered question-number'>

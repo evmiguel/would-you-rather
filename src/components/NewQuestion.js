@@ -23,7 +23,11 @@ class NewQuestion extends Component {
 
 	render () {
 		const { authedUser } = this.props
-		if (!authedUser) { return <Redirect to='/signin' /> }
+		if (!authedUser) { return <Redirect to={{
+								pathname: '/signin',
+								state: { previous: this.props.location }
+							}} />
+					}
 		return (
 			<div className="card new-question">
 				<h2 className='create-title'>Create New Question</h2>
@@ -42,7 +46,7 @@ class NewQuestion extends Component {
 							placeholder='Enter Option Two Text Here'
 							value={this.state.optionTwoText}
 							onChange={(e) => this.handleInputChange(e, 'optionTwoText')} />
-						<button type='submit' role='submit' className='submit-btn'>Submit</button>
+						<button type='submit' className='submit-btn'>Submit</button>
 					</form>
 				</div>
 			</div>
