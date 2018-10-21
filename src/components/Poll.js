@@ -10,7 +10,7 @@ const RESULTS = 'results'
 
 class Poll extends Component {
 	render() {
-		const { question, author, authedUser, type } = this.props
+		const { question, author, authedUser, type, avatarURL } = this.props
 		if (!authedUser) { return <Redirect to={{pathname: '/signin',
 												 state: { previous: this.props.location }}} /> }
 		if (!question) { return <Redirect to='/error' />}
@@ -19,6 +19,7 @@ class Poll extends Component {
 				<WouldYouRatherCard
 					author={author && author.name}
 					type={type === RESULTS ? RESULTS : POLL}
+					avatarURL={avatarURL}
 					child={
 						(question && this.props.type !== RESULTS) ?
 						<PollChoices
@@ -42,6 +43,7 @@ function mapStateToProps({questions, users, authedUser}, {match, location}){
 	let id = match.params.id
 	let question = questions[id] !== undefined ? questions[id] : false
 	let author = question ? users[question.author] : null
+	let avatarURL = author ? author.avatarURL : null
 	let type
 	if (authedUser) {
 		if (location.state !== undefined) {
@@ -56,6 +58,7 @@ function mapStateToProps({questions, users, authedUser}, {match, location}){
 		id,
 		author,
 		authedUser,
+		avatarURL,
 		type
 	}
 }
