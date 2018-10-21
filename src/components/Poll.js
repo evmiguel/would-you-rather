@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import WouldYouRatherCard from './WouldYouRatherCard'
@@ -8,35 +8,33 @@ import PollResults from './PollResults'
 const POLL = 'poll'
 const RESULTS = 'results'
 
-class Poll extends Component {
-	render() {
-		const { question, author, authedUser, type, avatarURL } = this.props
-		if (!authedUser) { return <Redirect to={{pathname: '/signin',
-												 state: { previous: this.props.location }}} /> }
-		if (!question) { return <Redirect to='/error' />}
-		return(
-			<div className='poll'>
-				<WouldYouRatherCard
-					author={author && author.name}
-					type={type === RESULTS ? RESULTS : POLL}
-					avatarURL={avatarURL}
-					child={
-						(question && this.props.type !== RESULTS) ?
-						<PollChoices
-							id={question.id}
-							optionOne={question.optionOne.text}
-							optionTwo={question.optionTwo.text}
-						/> :
-						<PollResults
-							id={question.id}
-							optionOne={question.optionOne.text}
-							optionTwo={question.optionTwo.text}
-						/>
-					}
-				/>
-			</div>
-		)
-	}
+const Poll = (props) => {
+	const { question, author, authedUser, type, avatarURL } = props
+	if (!authedUser) { return <Redirect to={{pathname: '/signin',
+											 state: { previous: props.location }}} /> }
+	if (!question) { return <Redirect to='/error' />}
+	return(
+		<div className='poll'>
+			<WouldYouRatherCard
+				author={author && author.name}
+				type={type === RESULTS ? RESULTS : POLL}
+				avatarURL={avatarURL}
+				child={
+					(question && type !== RESULTS) ?
+					<PollChoices
+						id={question.id}
+						optionOne={question.optionOne.text}
+						optionTwo={question.optionTwo.text}
+					/> :
+					<PollResults
+						id={question.id}
+						optionOne={question.optionOne.text}
+						optionTwo={question.optionTwo.text}
+					/>
+				}
+			/>
+		</div>
+	)
 }
 
 function mapStateToProps({questions, users, authedUser}, {match, location}){

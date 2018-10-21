@@ -13,7 +13,10 @@ export default function users(state = {}, action){
 				...state,
 				[action.authedUser] : {
 					...state[action.authedUser],
-					answers: Object.assign({}, state[action.authedUser].answers, { [action.qid]: action.answer })
+					answers: {
+						...state[action.authedUser].answers,
+						[action.qid]: action.answer
+					}
 				}
 			}
 		case SAVE_QUESTION:

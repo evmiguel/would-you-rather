@@ -13,11 +13,6 @@ class Home extends Component {
 		questionList: UNANSWERED
 	}
 
-	sort = (a,b) => {
-		let { questions } = this.props
-		return new Date(questions[b].timestamp).getTime() - new Date(questions[a].timestamp).getTime()
-	}
-
 	changeQuestionList = (e) => {
 		if(!e.target.textContent.toLowerCase().includes(UNANSWERED)) {
 			this.setState({questionList: ANSWERED })
@@ -27,17 +22,11 @@ class Home extends Component {
 	}
 
 	render() {
-		const { questions, users, authedUser } = this.props
+		const { questions, users, authedUser, answered, unanswered } = this.props
 		// Promp user to sign in on page
         if(!authedUser) {
         	return <Redirect to='/signin' />
         }
-
-        // Convert answer objects into lists for sorting
-        let userAnswers = Object.keys(users[authedUser].answers).sort(this.sort)
-        let unansweredQuestions = Object.keys(Object.assign({}, questions)).sort(this.sort)
-        // Remove any answered questions from the unanswered object
-        userAnswers.map(answer =>  unansweredQuestions = unansweredQuestions.filter(unanswered => answer !== unanswered))
 
         return (
         	<div className='home-dashboard'>
@@ -52,7 +41,7 @@ class Home extends Component {
 	        	<div className='question-list'>
 	        		<ul>
 	        			{
-	        				(this.state.questionList === UNANSWERED ? unansweredQuestions : userAnswers).map(answer => (
+	        				(this.state.questionList === UNANSWERED ? unanswered : answered).map(answer => (
 	        					<li key={questions[answer].id}>
 	        						<WouldYouRatherCard
 	        							author={users[questions[answer].author].name}
@@ -74,10 +63,28 @@ class Home extends Component {
 }
 
 function mapStateToProps({authedUser, users, questions}) {
+	let answered, unanswered
+
+	const sort = (a,b) => {
+		return new Date(questions[b].timestamp).getTime() - new Date(questions[a].timestamp).getTime()
+	}
+
+	if(authedUser) {
+		// Convert answer objects into lists for sorting
+	    answered = Object.keys(users[authedUser].answers).sort(sort)
+	    unanswered = Object.keys(Object.assign({}, questions)).sort(sort)
+	    // Remove any answered questions from the unanswered object
+	    answered.map(answer =>  unanswered = unanswered.filter(unanswered => answer !== unanswered))
+	}
+
+
+
 	return {
 		authedUser,
 		users,
-		questions
+		questions,
+		answered,
+		unanswered
 	}
 }
 export default withRouter(connect(mapStateToProps)(Home))

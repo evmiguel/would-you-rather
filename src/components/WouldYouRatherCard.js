@@ -21,9 +21,8 @@ const WouldYouRatherCard = (props) => {
 	)
 }
 
-function mapStateToProps({authedUser, users}, props){
+function mapStateToProps({authedUser, users}){
 	return {
-		...props,
 		user: users[authedUser]
 	}
 }
