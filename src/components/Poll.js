@@ -11,7 +11,9 @@ const RESULTS = 'results'
 class Poll extends Component {
 	render() {
 		const { question, author, authedUser, type } = this.props
-		if (!authedUser) { return <Redirect to='/signin' /> }
+		if (!authedUser) { return <Redirect to={{pathname: '/signin',
+												 state: { previous: this.props.location }}} /> }
+		if (!question) { return <Redirect to='/error' />}
 		return(
 			<div className='poll'>
 				<WouldYouRatherCard
@@ -36,11 +38,19 @@ class Poll extends Component {
 	}
 }
 
-function mapStateToProps({questions, users, authedUser}, {match}){
+function mapStateToProps({questions, users, authedUser}, {match, location}){
 	let id = match.params.id
-	let question = questions[id]
+	let question = questions[id] !== undefined ? questions[id] : false
 	let author = question ? users[question.author] : null
-	let type = match.path.includes(RESULTS) ? RESULTS : POLL
+	let type
+	if (authedUser) {
+		if (location.state !== undefined) {
+			type = location.state.type.includes(RESULTS) ? RESULTS : POLL
+		} else {
+			type = Object.keys(users[authedUser].answers).includes(id) ? RESULTS : POLL
+		}
+	}
+
 	return {
 		question,
 		id,

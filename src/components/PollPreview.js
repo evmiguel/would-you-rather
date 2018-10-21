@@ -13,7 +13,7 @@ const PollPreview = (props) => {
 	return (
 		<div>
 			<p>...{props.text.substring(0, props.text.length - toSubtract )}...</p>
-			<Link to={`/${questionType === UNANSWERED ? POLL : RESULTS}/${props.id}`}><button className='poll-button'>View Poll</button></Link>
+			<Link to={{ pathname: `/questions/${props.id}`, state: { type: questionType === UNANSWERED ? POLL : RESULTS}}}><button className='poll-button'>View Poll</button></Link>
 		</div>
 	)
 }

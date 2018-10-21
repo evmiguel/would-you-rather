@@ -33,7 +33,7 @@ class PollChoices extends Component {
 				authedUser: authedUser,
 				answer: this.state.option
 			}))
-		history.push(`/results/${id}`)
+		history.push(`/questions/${id}`)
 	}
 
 	render() {
